@@ -243,7 +243,7 @@ client.on('message', msg => {
 
 //YARDIM - BETA
 client.on('message', msg => {
-  if (msg.content === prefix "yardım") {
+  if (msg.content === prefix + "yardım") {
    	msg.reply('Yardım komutunu bakıma aldık. Yeni özellikler ekliyoruz. Şimdilik bununla idare ediniz. Özür Dileriz. - Enes Onur Ata#9427 Sahibi -');
   }
 });
