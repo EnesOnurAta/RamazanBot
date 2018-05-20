@@ -23,7 +23,7 @@ client.on("ready", () => {
 client.on("ready", () => {
   client.user.setStatus("STREAMING");
   client.user.setActivity(
-    "+yardım | RamazanBot | Hoş Geldin Ey Şehri Ramazan |www.enesonurata.cf",
+    "Hoş Geldin Ya Şehr-i Ramazan | ",
     {type: "STREAMING"}
   );
 });
