@@ -288,13 +288,13 @@ client.on('message', msg => {
 }}});
 
 //SELAM ALMA
-bot.on('message', async msg => {
+client.on('message', async msg => {
   if (msg.content.toLowerCase() === 'sa') {
     await msg.react('🇦');
     msg.react('🇸');
   }
 });
-bot.on('message', async msg => {
+client.on('message', async msg => {
   if (msg.content.toLowerCase() === 'Selamın Aleyküm') {
     await msg.react('🇦');
     msg.react('🇸');
