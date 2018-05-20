@@ -23,7 +23,7 @@ client.on("ready", () => {
 client.on("ready", () => {
   client.user.setStatus("STREAMING");
   client.user.setActivity(
-    "Hoş Geldin Ya Şehr-i Ramazan | ",
+    "Hayırlı Ramazanlar",
     {type: "STREAMING"}
   );
 });
@@ -206,3 +206,76 @@ const embed = new Discord.RichEmbed()
   .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
   msg.channel.send({embed})
   }});
+
+//YAZ
+client.on('message', msg => {
+    if (msg.content.startsWith(prefix + "yaz")) {
+      if (msg.channel.type !== "dm"){
+      let mesaj = msg.content.substring(2 + 3);
+      msg.delete (msg.content == 'yaz' + mesaj)
+      let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+         .setDescription(mesaj)
+  return msg.channel.send({embed})}
+  
+      }
+      });
+
+//SUNUCU BİLGİ
+client.on('message', msg => {
+    if (msg.content === prefix + 'sunucu') {
+      const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setThumbnail(msg.author.avatarURL)
+        .addField("Sunucu Sahibi", msg.guild.owner)
+        .addField("Toplam Üye Sayısı", msg.guild.members.size)
+        .addField("Oluşturulma Tarihi", msg.guild.createdAt)
+      msg.channel.send(embed)
+    }
+  });
+
+//Botu çağırınca
+client.on('message', msg => {
+  if (msg.content === 'Ramazan Bot') {
+   	msg.reply('Efendim canım');
+  }
+});
+
+//SOHBET TEMIZLEME
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === prefix + 'sil') {
+    if (msg.channel.type === 'dm') {
+      const ozelmesajuyari = new Discord.RichEmbed()
+    .setColor(0xFF0000)
+    .setTimestamp()
+    .setAuthor(msg.author.username, msg.author.avatarURL)
+    .addField(':warning: Uyarı :warning:', 'Bu komutu özel mesajlarda kullanamazsın.')
+    msg.author.sendEmbed(ozelmesajuyari); }
+      if (msg.channel.type !== 'dm') {
+        if (!msg.member.hasPermission("MANAGE_MESSAGES")) {{
+          const mesajlariyonet = new Discord.RichEmbed()
+          .setColor(0xFF0000)
+          .setTimestamp()
+          .setAuthor(msg.author.username, msg.author.avatarURL)
+          .addField(':warning: Uyarı :warning:', 'Bu komutu kullanmak için `Mesajları Yönet` iznine sahip olmalısın.')
+          return msg.author.sendEmbed(mesajlariyonet);
+      }}
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100);
+      msg.channel.bulkDelete(100); //1000 mesaj gg
+      const sohbetsilindi = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('Eylem:', 'Sohbet silme')
+    .addField('Yetkili:', msg.author.username)
+    .addField('Sonuç:', `:white_check_mark: | Başarılı`)
+    return msg.channel.sendEmbed(sohbetsilindi);
+      console.log("Sohbet " + msg.member + " tarafından silindi!");
+}}});
