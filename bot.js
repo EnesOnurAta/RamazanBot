@@ -241,6 +241,13 @@ client.on('message', msg => {
   }
 });
 
+//YARDIM - BETA
+client.on('message', msg => {
+  if (msg.content === prefix "yardım") {
+   	msg.reply('Yardım komutunu bakıma aldık. Yeni özellikler ekliyoruz. Şimdilik bununla idare ediniz. Özür Dileriz. - Enes Onur Ata#9427 Sahibi -');
+  }
+});
+
 //SOHBET TEMIZLEME
 client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'sil') {
@@ -279,3 +286,17 @@ client.on('message', msg => {
     return msg.channel.sendEmbed(sohbetsilindi);
       console.log("Sohbet " + msg.member + " tarafından silindi!");
 }}});
+
+//SELAM ALMA
+bot.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'sa') {
+    await msg.react('🇦');
+    msg.react('🇸');
+  }
+});
+bot.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'Selamın Aleyküm') {
+    await msg.react('🇦');
+    msg.react('🇸');
+  }
+});
